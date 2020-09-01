@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "06b355f263cbb08367e718ed6177baca",
+    "content-hash": "961350d8b200be8985941451177cead8",
     "packages": [
         {
             "name": "symfony/deprecation-contracts",
@@ -222,6 +222,52 @@
                 }
             ],
             "time": "2020-08-26T08:30:57+00:00"
+        },
+        {
+            "name": "webignition/basil-runner-documents",
+            "version": "0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webignition/basil-runner-documents.git",
+                "reference": "aa578c063ff08bdde8146ab963db9d1a0ba6c3cd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webignition/basil-runner-documents/zipball/aa578c063ff08bdde8146ab963db9d1a0ba6c3cd",
+                "reference": "aa578c063ff08bdde8146ab963db9d1a0ba6c3cd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.4",
+                "phpstan/extension-installer": "^1.0",
+                "phpstan/phpstan": "^0.12.40",
+                "phpstan/phpstan-mockery": "^0.12.7",
+                "phpunit/phpunit": "^9.3",
+                "squizlabs/php_codesniffer": "^3.5",
+                "symplify/easy-coding-standard": "^8.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "webignition\\BasilRunnerDocuments\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jon Cram",
+                    "email": "webignition@gmail.com"
+                }
+            ],
+            "description": "Models for documents that can be output by the runner",
+            "homepage": "https://github.com/webignition/basil-runner-documents",
+            "time": "2020-09-01T13:52:09+00:00"
         }
     ],
     "packages-dev": [
