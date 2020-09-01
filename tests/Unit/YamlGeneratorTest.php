@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace webignition\YamlDocumentGenerator\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use webignition\YamlDocumentGenerator\DocumentSourceInterface;
+use webignition\BasilRunnerDocuments\DocumentInterface;
 use webignition\YamlDocumentGenerator\YamlGenerator;
 
 class YamlGeneratorTest extends TestCase
@@ -14,7 +14,7 @@ class YamlGeneratorTest extends TestCase
      * @dataProvider generateDataProvider
      */
     public function testGenerate(
-        DocumentSourceInterface $documentSource,
+        DocumentInterface $documentSource,
         int $inlineDepth,
         int $indentSize,
         string $expectedString
@@ -30,7 +30,7 @@ class YamlGeneratorTest extends TestCase
     {
         return [
             'empty document' => [
-                'documentSource' => $this->createDocumentSource('empty-document', []),
+                'documentSource' => $this->createSource('empty-document', []),
                 'inlineDepth' => YamlGenerator::DEFAULT_INLINE_DEPTH,
                 'indentSize' => YamlGenerator::DEFAULT_INDENT_SIZE,
                 'expectedString' =>
@@ -39,7 +39,7 @@ class YamlGeneratorTest extends TestCase
                     '...' . "\n",
             ],
             'single-level document' => [
-                'documentSource' => $this->createDocumentSource(
+                'documentSource' => $this->createSource(
                     'single-level-document',
                     [
                         'level1key1' => 'level1value1',
@@ -54,7 +54,7 @@ class YamlGeneratorTest extends TestCase
                     '...' . "\n",
             ],
             'two-level document' => [
-                'documentSource' => $this->createDocumentSource(
+                'documentSource' => $this->createSource(
                     'two-level-document',
                     [
                         'level1key1' => 'level1value1',
@@ -75,7 +75,7 @@ class YamlGeneratorTest extends TestCase
                     '...' . "\n",
             ],
             'three-level document, default inline depth, default indent size' => [
-                'documentSource' => $this->createDocumentSource(
+                'documentSource' => $this->createSource(
                     'three-level-document',
                     [
                         'level1key1' => 'level1value1',
@@ -101,7 +101,7 @@ class YamlGeneratorTest extends TestCase
                     '...' . "\n",
             ],
             'three-level document, default inline depth, non-default indent size' => [
-                'documentSource' => $this->createDocumentSource(
+                'documentSource' => $this->createSource(
                     'three-level-document',
                     [
                         'level1key1' => 'level1value1',
@@ -127,7 +127,7 @@ class YamlGeneratorTest extends TestCase
                     '...' . "\n",
             ],
             'three-level document, non-default inline depth, non-default indent size' => [
-                'documentSource' => $this->createDocumentSource(
+                'documentSource' => $this->createSource(
                     'three-level-document',
                     [
                         'level1key1' => 'level1value1',
@@ -158,20 +158,20 @@ class YamlGeneratorTest extends TestCase
      * @param string $type
      * @param array<mixed> $data
      *
-     * @return DocumentSourceInterface
+     * @return DocumentInterface
      */
-    private function createDocumentSource(string $type, array $data): DocumentSourceInterface
+    private function createSource(string $type, array $data): DocumentInterface
     {
-        $documentSource = \Mockery::mock(DocumentSourceInterface::class);
+        $document = \Mockery::mock(DocumentInterface::class);
 
-        $documentSource
+        $document
             ->shouldReceive('getType')
             ->andReturn($type);
 
-        $documentSource
+        $document
             ->shouldReceive('getData')
             ->andReturn($data);
 
-        return $documentSource;
+        return $document;
     }
 }

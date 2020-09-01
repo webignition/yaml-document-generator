@@ -39,7 +39,8 @@
     },
     "require": {
         "php": ">=7.4",
-        "symfony/yaml": "^5.1"
+        "symfony/yaml": "^5.1",
+        "webignition/basil-runner-documents": ">=0.1,<1"
     },
     "require-dev": {
         "mockery/mockery": "^1.4",
