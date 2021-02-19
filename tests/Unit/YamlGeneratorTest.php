@@ -18,7 +18,7 @@ class YamlGeneratorTest extends TestCase
         int $inlineDepth,
         int $indentSize,
         string $expectedString
-    ) {
+    ): void {
         $generator = new YamlGenerator();
         $generator->setInlineDepth($inlineDepth);
         $generator->setIndentSize($indentSize);
@@ -26,6 +26,9 @@ class YamlGeneratorTest extends TestCase
         $this->assertSame($expectedString, $generator->generate($documentSource));
     }
 
+    /**
+     * @return array[]
+     */
     public function generateDataProvider(): array
     {
         return [
