@@ -36,8 +36,7 @@ class YamlGeneratorTest extends TestCase
                 'documentSource' => $this->createSource('empty-document', []),
                 'inlineDepth' => YamlGenerator::DEFAULT_INLINE_DEPTH,
                 'indentSize' => YamlGenerator::DEFAULT_INDENT_SIZE,
-                'expectedString' =>
-                    '---' . "\n" .
+                'expectedString' => '---' . "\n" .
                     'type: empty-document' . "\n" .
                     '...' . "\n",
             ],
@@ -50,8 +49,7 @@ class YamlGeneratorTest extends TestCase
                 ),
                 'inlineDepth' => YamlGenerator::DEFAULT_INLINE_DEPTH,
                 'indentSize' => YamlGenerator::DEFAULT_INDENT_SIZE,
-                'expectedString' =>
-                    '---' . "\n" .
+                'expectedString' => '---' . "\n" .
                     'type: single-level-document' . "\n" .
                     'level1key1: level1value1' . "\n" .
                     '...' . "\n",
@@ -64,13 +62,11 @@ class YamlGeneratorTest extends TestCase
                         'level1key2' => [
                             'level2key1' => 'level2value1',
                         ],
-
                     ]
                 ),
                 'inlineDepth' => YamlGenerator::DEFAULT_INLINE_DEPTH,
                 'indentSize' => YamlGenerator::DEFAULT_INDENT_SIZE,
-                'expectedString' =>
-                    '---' . "\n" .
+                'expectedString' => '---' . "\n" .
                     'type: two-level-document' . "\n" .
                     'level1key1: level1value1' . "\n" .
                     'level1key2:' . "\n" .
@@ -88,13 +84,11 @@ class YamlGeneratorTest extends TestCase
                                 'level3key1' => 'level3value1',
                             ],
                         ],
-
                     ]
                 ),
                 'inlineDepth' => YamlGenerator::DEFAULT_INLINE_DEPTH,
                 'indentSize' => YamlGenerator::DEFAULT_INDENT_SIZE,
-                'expectedString' =>
-                    '---' . "\n" .
+                'expectedString' => '---' . "\n" .
                     'type: three-level-document' . "\n" .
                     'level1key1: level1value1' . "\n" .
                     'level1key2:' . "\n" .
@@ -114,13 +108,11 @@ class YamlGeneratorTest extends TestCase
                                 'level3key1' => 'level3value1',
                             ],
                         ],
-
                     ]
                 ),
                 'inlineDepth' => YamlGenerator::DEFAULT_INLINE_DEPTH,
                 'indentSize' => 4,
-                'expectedString' =>
-                    '---' . "\n" .
+                'expectedString' => '---' . "\n" .
                     'type: three-level-document' . "\n" .
                     'level1key1: level1value1' . "\n" .
                     'level1key2:' . "\n" .
@@ -140,13 +132,11 @@ class YamlGeneratorTest extends TestCase
                                 'level3key1' => 'level3value1',
                             ],
                         ],
-
                     ]
                 ),
                 'inlineDepth' => 2,
                 'indentSize' => 4,
-                'expectedString' =>
-                    '---' . "\n" .
+                'expectedString' => '---' . "\n" .
                     'type: three-level-document' . "\n" .
                     'level1key1: level1value1' . "\n" .
                     'level1key2:' . "\n" .
@@ -158,10 +148,7 @@ class YamlGeneratorTest extends TestCase
     }
 
     /**
-     * @param string $type
      * @param array<mixed> $data
-     *
-     * @return DocumentInterface
      */
     private function createSource(string $type, array $data): DocumentInterface
     {
@@ -169,11 +156,13 @@ class YamlGeneratorTest extends TestCase
 
         $document
             ->shouldReceive('getType')
-            ->andReturn($type);
+            ->andReturn($type)
+        ;
 
         $document
             ->shouldReceive('getData')
-            ->andReturn($data);
+            ->andReturn($data)
+        ;
 
         return $document;
     }
