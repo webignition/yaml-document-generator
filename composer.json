@@ -38,7 +38,7 @@
         ]
     },
     "require": {
-        "php": "^8",
+        "php": "^8.0|^8.1",
         "symfony/yaml": "^5.2",
         "webignition/basil-runner-documents": ">=0.2,<1"
     },
