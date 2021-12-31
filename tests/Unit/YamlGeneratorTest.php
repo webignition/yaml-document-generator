@@ -27,7 +27,7 @@ class YamlGeneratorTest extends TestCase
     }
 
     /**
-     * @return array[]
+     * @return array<mixed>
      */
     public function generateDataProvider(): array
     {
