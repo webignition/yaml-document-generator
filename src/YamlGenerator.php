@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace webignition\YamlDocumentGenerator;
 
 use Symfony\Component\Yaml\Yaml;
-use webignition\BasilRunnerDocuments\DocumentInterface;
 
 class YamlGenerator
 {
@@ -17,20 +16,14 @@ class YamlGenerator
     private int $inlineDepth = self::DEFAULT_INLINE_DEPTH;
     private int $indentSize = self::DEFAULT_INDENT_SIZE;
 
-    public function generate(DocumentInterface $documentSource): string
+    /**
+     * @param array<mixed> $data
+     */
+    public function generate(array $data): string
     {
         return
             self::DOCUMENT_START . "\n" .
-            trim(Yaml::dump(
-                array_merge(
-                    [
-                        'type' => $documentSource->getType(),
-                    ],
-                    $documentSource->getData()
-                ),
-                $this->inlineDepth,
-                $this->indentSize
-            )) . "\n" .
+            trim(Yaml::dump($data, $this->inlineDepth, $this->indentSize)) . "\n" .
             self::DOCUMENT_END . "\n";
     }
 
