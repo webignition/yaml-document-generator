@@ -8,20 +8,12 @@ on:
 
 jobs:
   unit:
-    name: PHPUnit unit tests - PHP ${{ matrix.php }}, Symfony ${{ matrix.symfony }}
+    name: PHPUnit unit tests - PHP ${{ matrix.php }}
     strategy:
       matrix:
-        operating-system: [ubuntu-latest]
         php: ['8.4']
-        symfony: [ '5.4.*', '6.0.*' ]
-        include:
-          - symfony: 5.4.*
-            composer-flags: --prefer-lowest
+    runs-on: ubuntu-latest
 
-          - symfony: 6.0.*
-            composer-flags: --prefer-stable
-
-    runs-on: ${{ matrix.operating-system }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -35,7 +27,7 @@ jobs:
         uses: php-actions/composer@v6
         with:
           command: update
-          args: --ignore-platform-reqs ${{ matrix.composer-flags }}
+          args: --ignore-platform-reqs
 
       - name: Run PHPUnit unit tests
         run: composer test
