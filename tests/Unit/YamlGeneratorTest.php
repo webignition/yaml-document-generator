@@ -30,7 +30,7 @@ class YamlGeneratorTest extends TestCase
     /**
      * @return array<mixed>
      */
-    public function generateDataProvider(): array
+    public static function generateDataProvider(): array
     {
         return [
             'empty document' => [
