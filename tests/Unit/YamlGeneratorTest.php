@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace webignition\YamlDocumentGenerator\Tests\Unit;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use webignition\YamlDocumentGenerator\YamlGenerator;
 
 class YamlGeneratorTest extends TestCase
 {
     /**
-     * @dataProvider generateDataProvider
-     *
      * @param array<mixed> $data
      */
+    #[DataProvider('generateDataProvider')]
     public function testGenerate(
         array $data,
         int $inlineDepth,
@@ -30,7 +30,7 @@ class YamlGeneratorTest extends TestCase
     /**
      * @return array<mixed>
      */
-    public function generateDataProvider(): array
+    public static function generateDataProvider(): array
     {
         return [
             'empty document' => [
