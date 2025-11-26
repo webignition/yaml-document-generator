@@ -22,9 +22,9 @@ class YamlGenerator
     public function generate(array $data): string
     {
         return
-            self::DOCUMENT_START . "\n" .
-            trim(Yaml::dump($data, $this->inlineDepth, $this->indentSize)) . "\n" .
-            self::DOCUMENT_END . "\n";
+            self::DOCUMENT_START . "\n"
+            . trim(Yaml::dump($data, $this->inlineDepth, $this->indentSize)) . "\n"
+            . self::DOCUMENT_END . "\n";
     }
 
     public function setInlineDepth(int $inlineDepth): void

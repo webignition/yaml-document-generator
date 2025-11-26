@@ -37,9 +37,9 @@ class YamlGeneratorTest extends TestCase
                 'data' => [],
                 'inlineDepth' => YamlGenerator::DEFAULT_INLINE_DEPTH,
                 'indentSize' => YamlGenerator::DEFAULT_INDENT_SIZE,
-                'expectedString' => '---' . "\n" .
-                    '{  }' . "\n" .
-                    '...' . "\n",
+                'expectedString' => '---' . "\n"
+                    . '{  }' . "\n"
+                    . '...' . "\n",
             ],
             'single-level document' => [
                 'data' => [
@@ -47,9 +47,9 @@ class YamlGeneratorTest extends TestCase
                 ],
                 'inlineDepth' => YamlGenerator::DEFAULT_INLINE_DEPTH,
                 'indentSize' => YamlGenerator::DEFAULT_INDENT_SIZE,
-                'expectedString' => '---' . "\n" .
-                    'level1key1: level1value1' . "\n" .
-                    '...' . "\n",
+                'expectedString' => '---' . "\n"
+                    . 'level1key1: level1value1' . "\n"
+                    . '...' . "\n",
             ],
             'two-level document' => [
                 'data' => [
@@ -60,11 +60,11 @@ class YamlGeneratorTest extends TestCase
                 ],
                 'inlineDepth' => YamlGenerator::DEFAULT_INLINE_DEPTH,
                 'indentSize' => YamlGenerator::DEFAULT_INDENT_SIZE,
-                'expectedString' => '---' . "\n" .
-                    'level1key1: level1value1' . "\n" .
-                    'level1key2:' . "\n" .
-                    '  level2key1: level2value1' . "\n" .
-                    '...' . "\n",
+                'expectedString' => '---' . "\n"
+                    . 'level1key1: level1value1' . "\n"
+                    . 'level1key2:' . "\n"
+                    . '  level2key1: level2value1' . "\n"
+                    . '...' . "\n",
             ],
             'three-level document, default inline depth, default indent size' => [
                 'data' => [
@@ -78,13 +78,13 @@ class YamlGeneratorTest extends TestCase
                 ],
                 'inlineDepth' => YamlGenerator::DEFAULT_INLINE_DEPTH,
                 'indentSize' => YamlGenerator::DEFAULT_INDENT_SIZE,
-                'expectedString' => '---' . "\n" .
-                    'level1key1: level1value1' . "\n" .
-                    'level1key2:' . "\n" .
-                    '  level2key1: level2value1' . "\n" .
-                    '  level2key2:' . "\n" .
-                    '    level3key1: level3value1' . "\n" .
-                    '...' . "\n",
+                'expectedString' => '---' . "\n"
+                    . 'level1key1: level1value1' . "\n"
+                    . 'level1key2:' . "\n"
+                    . '  level2key1: level2value1' . "\n"
+                    . '  level2key2:' . "\n"
+                    . '    level3key1: level3value1' . "\n"
+                    . '...' . "\n",
             ],
             'three-level document, default inline depth, non-default indent size' => [
                 'data' => [
@@ -98,13 +98,13 @@ class YamlGeneratorTest extends TestCase
                 ],
                 'inlineDepth' => YamlGenerator::DEFAULT_INLINE_DEPTH,
                 'indentSize' => 4,
-                'expectedString' => '---' . "\n" .
-                    'level1key1: level1value1' . "\n" .
-                    'level1key2:' . "\n" .
-                    '    level2key1: level2value1' . "\n" .
-                    '    level2key2:' . "\n" .
-                    '        level3key1: level3value1' . "\n" .
-                    '...' . "\n",
+                'expectedString' => '---' . "\n"
+                    . 'level1key1: level1value1' . "\n"
+                    . 'level1key2:' . "\n"
+                    . '    level2key1: level2value1' . "\n"
+                    . '    level2key2:' . "\n"
+                    . '        level3key1: level3value1' . "\n"
+                    . '...' . "\n",
             ],
             'three-level document, non-default inline depth, non-default indent size' => [
                 'data' => [
@@ -118,12 +118,12 @@ class YamlGeneratorTest extends TestCase
                 ],
                 'inlineDepth' => 2,
                 'indentSize' => 4,
-                'expectedString' => '---' . "\n" .
-                    'level1key1: level1value1' . "\n" .
-                    'level1key2:' . "\n" .
-                    '    level2key1: level2value1' . "\n" .
-                    '    level2key2: { level3key1: level3value1 }' . "\n" .
-                    '...' . "\n",
+                'expectedString' => '---' . "\n"
+                    . 'level1key1: level1value1' . "\n"
+                    . 'level1key2:' . "\n"
+                    . '    level2key1: level2value1' . "\n"
+                    . '    level2key2: { level3key1: level3value1 }' . "\n"
+                    . '...' . "\n",
             ],
         ];
     }
