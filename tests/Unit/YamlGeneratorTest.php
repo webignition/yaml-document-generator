@@ -38,7 +38,7 @@ class YamlGeneratorTest extends TestCase
                 'inlineDepth' => YamlGenerator::DEFAULT_INLINE_DEPTH,
                 'indentSize' => YamlGenerator::DEFAULT_INDENT_SIZE,
                 'expectedString' => '---' . "\n"
-                    . '{  }' . "\n"
+                    . '{}' . "\n"
                     . '...' . "\n",
             ],
             'single-level document' => [
